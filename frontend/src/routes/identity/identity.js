@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container, Grid, Box, Typography, Divider } from '@material-ui/core';
 
@@ -25,4 +26,9 @@ export default function Identity(props) {
             </Box>
         </Container>
     )
+}
+
+Identity.propTypes = {
+    isConnected: PropTypes.bool.isRequired,
+    setIsConnected: PropTypes.func.isRequired
 }
