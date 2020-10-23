@@ -16,6 +16,7 @@ export default function Connect() {
     const [authKey, setAuthKey] = useState(fakeKey);
     const [authCRT, setAuthCRT] = useState(fakeCert);
     const [brokerURL, setBrokerURL] = useState(brokerProtocol + "://" + brokerHost + ":" + brokerPort);
+    const [clientID, setClientID] = useState('');
     const [error, setError] = useState(null);
     const [correct, setCorrect] = useState(null);
     const [isConnected, setIsConnected] = useState(false);
@@ -30,6 +31,10 @@ export default function Connect() {
 
     const handleBrokerURLChange = (event) => {
         setBrokerURL(event.target.value);
+    }
+
+    const handleClientIDChange = (event) => {
+        setClientID(event.target.value);
     }
 
     const handleDisconnect = (event) => {
@@ -48,7 +53,8 @@ export default function Connect() {
         const data = {
             "authKey": authKey,
             "authCRT": authCRT,
-            "brokerURL": brokerURL
+            "brokerURL": brokerURL,
+            "clientID": clientID
         }
         postConnect(data).then(
             (response) => {
@@ -113,17 +119,30 @@ export default function Connect() {
                 </Grid>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12}>
+                        <Grid item xs={6}>
                             <Typography variant="h6">
                                 Insert Broker URL:
                             </Typography>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={6}>
+                            <Typography variant="h6">
+                                Insert Client ID:
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={6}>
                             <TextField
                                 label="Insert Broker URL here"
                                 value={brokerURL}
                                 fullWidth
                                 onChange={handleBrokerURLChange}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                label="Insert Client ID here"
+                                value={clientID}
+                                fullWidth
+                                onChange={handleClientIDChange}
                             />
                         </Grid>
                     </Grid>
