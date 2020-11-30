@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import uuid from 'react-uuid';
 
 import { Grid, Typography, TextField, Button } from '@material-ui/core';
 import { postConnect, postDisconnect } from '../../services/api/backend';
@@ -16,7 +17,7 @@ export default function Connect() {
     const [authKey, setAuthKey] = useState(fakeKey);
     const [authCRT, setAuthCRT] = useState(fakeCert);
     const [brokerURL, setBrokerURL] = useState(brokerProtocol + "://" + brokerHost + ":" + brokerPort);
-    const [clientID, setClientID] = useState('');
+    const [clientID, setClientID] = useState(uuid());
     const [error, setError] = useState(null);
     const [correct, setCorrect] = useState(null);
     const [isConnected, setIsConnected] = useState(false);
