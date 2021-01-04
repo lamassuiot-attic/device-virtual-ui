@@ -13,14 +13,23 @@ import LamassuAppBar from './components/app-bar';
 
 dotenv.config();
 
-render((
-        <HashRouter>
-        <CssBaseline/>
-        <LamassuAppBar/>
-        <ScrollToTop/>
-        <Switch>
-            <Route exact path="/" render={(props) => (<Identity key={uuid()}{...props}/>)}/>
-            <Route exact path="/communication" render={(props) => (<Communication key={uuid()}{...props}/>)}/>
-        </Switch>
-    </HashRouter>
-), document.getElementById('root'));
+render(
+  <HashRouter>
+    <CssBaseline />
+    <LamassuAppBar />
+    <ScrollToTop />
+    <Switch>
+      <Route
+        exact
+        path="/"
+        render={(props) => <Identity key={uuid()} {...props} />}
+      />
+      <Route
+        exact
+        path="/communication"
+        render={(props) => <Communication key={uuid()} {...props} />}
+      />
+    </Switch>
+  </HashRouter>,
+  document.getElementById('root')
+);
