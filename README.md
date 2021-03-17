@@ -8,6 +8,6 @@ Lamassu
 
 [Lamassu](https://www.lamassu.io) project is a Public Key Infrastructure (PKI) for the Internet of Things (IoT).
 
-## Device Virtual
+## Device Virtual UI
 
-Device Virtual simulates a hardware device offering the functionalities to connect a client with a MQTT broker and send messages.
+Device Virtual UI provides an user interface for managing [Device Virtual](https://github.com/lamassuiot/device-virtual) component services.
