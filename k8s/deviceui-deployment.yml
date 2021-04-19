@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deviceui
+  labels:
+    app: deviceui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deviceui
+  template:
+    metadata:
+      labels:
+        app: deviceui
+    spec:
+      containers:
+        - name: deviceui
+          image: deviceui:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 443
